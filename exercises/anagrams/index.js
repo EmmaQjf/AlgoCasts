@@ -25,6 +25,5 @@ function anagrams(stringA, stringB) {
     return _.isEqual(fcA,fcB)? true:false
 }
 
-console.log(anagrams('rail safety', 'fairy tales'))
 
 module.exports = anagrams;
