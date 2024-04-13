@@ -8,6 +8,23 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+
+//remove specail symbols and spaces --regular express
+//fequency counter
+function anagrams(stringA, stringB) {
+    const newStringA =stringA.replace(/[^a-zA-Z0-9]/g,'')
+    const newStringB =stringB.replace(/[^a-zA-Z0-9]/g,'')
+    let fcA = {}
+    for (const letter of newStringA.toLowerCase()){
+       fcA[letter]= (fcA[letter]||0)+1
+    }
+    let fcB = {}
+    for (const letter of newStringB.toLowerCase()){
+       fcB[letter]= (fcB[letter]||0)+1
+    }
+    return _.isEqual(fcA,fcB)? true:false
+}
+
+console.log(anagrams('rail safety', 'fairy tales'))
 
 module.exports = anagrams;
