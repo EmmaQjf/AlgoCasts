@@ -13,13 +13,18 @@
 //loop through the n, and add the number into the array
 // return the number in the position of n
 function fib(n) {
-    let array = [0,1]
-   if (n === 0) return 0;
-   if (n === 1 ) return 1;
-   for (let i = 2; i <=n; i++){
-    array[i]=array[i-1]+array[i-2]
-   }
-   return array[n]
+//     let array = [0,1]
+//    if (n === 0) return 0;
+//    if (n === 1 ) return 1;
+//    for (let i = 2; i <=n; i++){
+//     array[i]=array[i-1]+array[i-2]
+//    }
+//    return array[n]
+if (n < 2){
+    return 1;
+} else {
+    return fib(n-2)+fib(n-3)
+}
 }
 
 module.exports = fib;
