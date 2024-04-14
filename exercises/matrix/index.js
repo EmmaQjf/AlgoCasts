@@ -15,6 +15,52 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
-function matrix(n) {}
+//define a empty array with n numbers of subarrays
+//define the variables of startRow, endRow, startColumn and endColumn
+//define the counter i
+// define the while loop when the startrow <= endRow, startColumn<=endColumn
+// get the num in toprow, rightcolumn, bottomrow and leftcolumn
+function matrix(n) {
+    let results = [];
+    for (let i = 0; i < n; i++){
+        results.push([]);
+    }
+    let startRow = 0;
+    let endRow = n-1;
+    let startColumn = 0;
+    let endColumn= n-1;
+    let counter = 1;
+
+    while(startRow <= endRow && startColumn<= endColumn){
+        // top row
+        for(let i = 0; i<= endColumn;i++){
+            results[startRow][i]=counter;
+            counter++
+        }
+        startRow++;
+
+        // right colomn
+        for(let i = startRow; i<= endRow;i++){
+            results[i][endColumn]=counter;
+            counter++
+        }
+        endColumn--;
+        
+        // bottomrow
+        for(let i = endColumn; i>= startColumn;i--){
+            results[endRow][i]=counter;
+            counter++
+        }
+        endRow--;
+        
+        // leftColumn
+        for(let i = endRow; i>= startRow;i--){
+            results[i][startColumn]=counter;
+            counter++
+        }
+        startColumn++;
+    }
+    return results
+}
 
 module.exports = matrix;
