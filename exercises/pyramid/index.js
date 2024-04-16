@@ -29,7 +29,6 @@ function pyramid(n) {
     let endColumn = Math.floor((2*n-1)/2)
 
     while(startRow <= endRow){
-       
         for(let i =0; i< 2*n-1; i++){
             if(i>=startColumn && i<=endColumn){
                 result[startRow][i]='#'
@@ -41,7 +40,18 @@ function pyramid(n) {
         endColumn++;
         startColumn--;
     }
-   return result;
+    // for (let i = 0; i < 2*n-1; i++) { 
+    //     let s=""; 
+    //         for (let j = 0; j < 2*n-1; j++) { 
+    //             s+=(result[i][j]+""); 
+    //         } 
+    //        console.log(s) 
+    //     } 
+    for (let i = 0; i < 2 * n - 1; i++) { // Loop through rows
+        let row = result[i].map(String).join(""); // Convert elements to strings and join them
+        console.log(row); // Print the row
+    }
+  
 }
 
 module.exports = pyramid;
